@@ -95,3 +95,83 @@ Stateful ACLs monitor the state of active connections and make filtering decisio
 Misconfigured security rules can lead to unauthorized access, disrupted services, and increased vulnerability to attacks. For example, overly permissive rules might expose sensitive data, while overly restrictive rules can block legitimate traffic. Regular reviews and testing of rules minimize these risks and maintain operational efficiency.
 
 Let me know if you'd like further clarification or additional topics covered!
+10.1 What is an authentication factor, and what different factors are available?
+An authentication factor is a method used to verify a user’s identity. The three main factors are something you know (e.g., passwords, PINs), something you have (e.g., smart cards, tokens), and something you are (e.g., biometrics like fingerprints or facial recognition). Multi-factor authentication (MFA) combines two or more factors to enhance security.
+
+10.1 What is the difference between local and remote authentication?
+Local authentication occurs directly on the device being accessed, such as logging into a standalone computer using local user credentials. Remote authentication involves validating user credentials through a centralized system over a network, like authenticating to a domain controller or RADIUS server. Remote authentication is commonly used in enterprise environments for better scalability and management.
+
+10.1 What is the relationship between authentication, authorization, and single sign-on?
+Authentication verifies a user's identity, while authorization determines what resources they can access based on their permissions. Single sign-on (SSO) simplifies access by allowing users to authenticate once and gain access to multiple resources without re-entering credentials. SSO enhances user experience and reduces password management overhead.
+
+10.1 How do certificates and PKI support authentication?
+Certificates and Public Key Infrastructure (PKI) support authentication by verifying the identity of users, devices, or systems using cryptographic methods. Certificates issued by trusted Certificate Authorities (CAs) are used to establish secure communications, such as in SSL/TLS protocols. PKI manages the creation, distribution, and revocation of these certificates, ensuring trustworthiness.
+
+10.1 What roles do RADIUS, TACACS+, and SAML play in authentication?
+RADIUS and TACACS+ are protocols used for centralized authentication, authorization, and accounting (AAA). RADIUS is often used for network access control, while TACACS+ is better suited for command-level authorization. SAML (Security Assertion Markup Language) is an XML-based standard for exchanging authentication and authorization data, enabling single sign-on across different platforms.
+
+10.1 What rules should govern how users are authorized to perform actions on the network?
+Authorization rules should follow the principle of least privilege, granting users only the permissions they need to perform their duties. Role-based access control (RBAC) and separation of duties can help enforce these rules. Regular audits and reviews ensure that permissions remain aligned with organizational policies and user responsibilities.
+
+10.1 What role does a directory server play in access management?
+A directory server, such as Microsoft Active Directory or OpenLDAP, provides centralized authentication and authorization services. It stores user accounts, group memberships, and access policies, enabling administrators to control access to network resources. Directory servers streamline management and enforce consistent security policies across an organization.
+
+10.1 What is the relationship between defense in depth and endpoint security?
+Defense in depth is a layered security approach that combines multiple protections to guard against threats, while endpoint security focuses on securing individual devices. Endpoint security, such as antivirus, firewalls, and encryption, forms one layer of defense in depth, complementing other measures like network security and monitoring.
+
+10.1 What are the critical elements of device and service hardening policies?
+Device and service hardening policies include disabling unnecessary services, applying the latest security patches, and using strong authentication methods. They also involve configuring firewalls, limiting administrative privileges, and enforcing secure protocols like SSH or HTTPS. Regular vulnerability scans and audits ensure continued compliance.
+
+10.1 What are the different types of network access control, and what parameters can they evaluate before a device is permitted to communicate on the network?
+Network access control (NAC) can be pre-admission (evaluating devices before access) or post-admission (monitoring devices during access). Parameters evaluated include device health (e.g., patch level, antivirus status), user identity, and location. NAC ensures only compliant and authorized devices are allowed on the network.
+
+10.1 What are the differences between port security, 802.1X, and Extensible Authentication Protocol?
+Port security limits access to a network by restricting the number of MAC addresses on a switch port. 802.1X is a protocol for authenticating devices before granting network access, often used with RADIUS. The Extensible Authentication Protocol (EAP) supports flexible authentication methods within 802.1X, such as certificates or passwords.
+
+10.1 What are the roles of AAA servers, such as RADIUS and TACACS+, in network access control?
+AAA servers provide Authentication, Authorization, and Accounting services. RADIUS is used for authenticating users to access networks and managing accounting logs, while TACACS+ provides granular control over authorization and is commonly used for device-level access. Both enhance network security and simplify management.
+
+10.1 What switch port security and monitoring features protect against other kinds of network attacks?
+Switch port security features, like MAC address filtering and dynamic lockouts, prevent unauthorized devices from connecting. Monitoring features, such as port mirroring and spanning tree protocol (STP) protections, detect anomalies like loops or rogue devices. These measures protect against attacks like MAC flooding and unauthorized access.
+
+10.1 What distinguishing features of firewalls and proxies make them candidates for different types of network filtering?
+Firewalls filter traffic based on IP addresses, ports, and protocols to enforce security policies at the network layer. Proxies act as intermediaries, filtering traffic at the application layer while masking client identities. Firewalls are better for general perimeter security, while proxies are suited for web filtering and caching.
+
+10.1 What distinguishes security rule types, such as access control lists (ACLs), uniform resource locator (URL) filtering, and content filtering?
+ACLs define rules for allowing or blocking traffic based on IPs, ports, or protocols. URL filtering blocks access to specific websites or domains, often based on categories like "gambling" or "malware." Content filtering inspects and blocks traffic containing inappropriate or malicious content, focusing on data rather than endpoints.
+
+10.1 What is the difference between a stateful and a stateless ACL?
+Stateful ACLs monitor the state of active connections and make filtering decisions based on the context of a session, providing more dynamic control. Stateless ACLs only evaluate individual packets against predefined rules, making them simpler but less flexible. Stateful ACLs are better for complex environments requiring higher security.
+
+10.1 What issues and impacts can arise from misconfigured security rules?
+Misconfigured security rules can lead to unauthorized access, disrupted services, and increased vulnerability to attacks. For example, overly permissive rules might expose sensitive data, while overly restrictive rules can block legitimate traffic. Regular reviews and testing of rules minimize these risks and maintain operational efficiency.
+
+11.1 What technologies are used to implement zones and network segmentation enforcement?
+Technologies for zones and network segmentation include firewalls, VLANs (Virtual Local Area Networks), and access control lists (ACLs). Firewalls enforce policies by controlling traffic between zones, while VLANs create isolated logical networks within the same physical infrastructure. Additionally, software-defined networking (SDN) and network access control (NAC) solutions provide dynamic and centralized segmentation capabilities.
+
+11.1 What determines whether a zone is fully trusted, partially trusted, or untrusted?
+The trust level of a zone is determined by the sensitivity of the data it handles, its exposure to external threats, and the security measures in place. Fully trusted zones, like internal networks, are secured and accessible only to authorized users. Partially trusted zones, such as screened subnets, provide limited access to certain resources. Untrusted zones, like the public internet, require strict controls and minimal trust due to high risk.
+
+11.1 What are the functions of the two firewalls in a screened subnet?
+In a screened subnet, the first firewall separates the external untrusted network (e.g., the internet) from the DMZ (Demilitarized Zone). The second firewall isolates the DMZ from the trusted internal network. This dual-firewall setup creates layered defenses, ensuring that any compromise in the DMZ does not directly impact the internal network.
+
+11.1 Which types of hosts are placed within a screened subnet?
+A screened subnet typically contains hosts that need to be accessible from both internal and external networks, such as web servers, mail servers, and DNS servers. These hosts act as intermediaries between the internet and the internal network, reducing direct exposure of sensitive internal resources to external threats.
+
+11.1 What are embedded and IoT systems and devices?
+Embedded systems are specialized computing devices integrated into larger systems to perform specific functions, such as sensors in vehicles or home appliances. Internet of Things (IoT) devices are network-connected embedded systems that collect, transmit, and process data. Examples include smart thermostats, security cameras, and industrial sensors.
+
+11.1 What differences are there between consumer and industrial IoT devices and networks?
+Consumer IoT devices, such as smart home gadgets, focus on convenience and usability, often prioritizing lower cost over security. Industrial IoT (IIoT) devices are designed for critical applications, such as manufacturing or utilities, emphasizing reliability, durability, and security. IIoT networks are often more robust and segregated to ensure uninterrupted operations.
+
+11.1 What is the difference between ICS and SCADA?
+Industrial Control Systems (ICS) are broad frameworks that control and monitor industrial processes, often integrating multiple components. Supervisory Control and Data Acquisition (SCADA) systems are a subset of ICS designed for real-time remote monitoring and control over large, distributed environments, such as pipelines or power grids. SCADA systems emphasize centralized supervision, while ICS includes on-site process controllers like PLCs (Programmable Logic Controllers).
+
+11.1 What impact does the use of IoT or IIoT have on network segmentation enforcement?
+IoT and IIoT devices often introduce new endpoints and traffic patterns, increasing the complexity of network segmentation. Proper segmentation ensures that these devices operate in isolated zones to prevent unauthorized access and limit the spread of malware. Without enforcement, IoT devices can become weak points in the network.
+
+11.1 What are the roles of prevention and detection in physical security?
+Prevention aims to deter or block unauthorized access through measures like locks, fences, and security guards. Detection identifies breaches or intrusions using technologies such as surveillance cameras, motion sensors, and alarms. A balanced approach combining both ensures comprehensive physical security.
+
+11.1 What types of equipment are available to aid in physical security?
+Physical security equipment includes access control systems (e.g., keycard readers, biometric scanners), surveillance tools (e.g., CCTV cameras, drones), and perimeter defenses (e.g., fences, motion sensors). Other tools, such as intrusion detection systems and environmental monitors, provide additional layers of protection against unauthorized access and environmental risks.
