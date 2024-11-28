@@ -1,0 +1,36 @@
+## TESTOUT / COMPTIA
+
+The name "terminal" comes from the early days of computing where configuration was performed by a teletype (TTY) device. The TTY is the terminal or endpoint for communication between the computer and the user. The TTY handles text input and output between the user and the shell, or command environment. Where the terminal accepts input and displays output, the shell performs the actual processing.
+
+A terminal emulator is any kind of software that replicates this TTY input/output function. A given terminal emulator application might support connections to multiple types of shell. A remote terminal emulator allows you to connect to the shell of a different host over the network.
+
+# Secure Shell (SSH) is the principal means of obtaining secure remote access to UNIX and Linux servers and to most types of network appliances (switches, routers, and firewalls). As well as terminal emulation, SSH can be used as the secure file transfer protocol (SFTP). There are numerous commercial and open source SSH servers and terminal emulation clients available for all the major NOS platforms (UNIX, Linux, Windows, and macOS). The most widely used is OpenSSH (openssh.com). An SSH server listens on TCP port 22 by default.
+
+SSH Host Key
+An SSH server is identified by a public/private key pair, referred to as the host key. A mapping of host names to public keys can be kept manually by each SSH client, or there are various enterprise software products designed for SSH key management.
+
+A screenshot of a warning message dialog box.
+Description
+Confirming the SSH server's host key using the SSH client. (Screenshot courtesy of Microsoft.)
+
+The host key must be changed if any compromise of the host is suspected. If an attacker has obtained the private key of a server or appliance, they can masquerade as that server or appliance and perform a spoofing attack, usually with a view to obtaining other network credentials. You might also change the key to use a longer bit strength.
+SSH Client Authentication
+The server's host key is used to set up a secure channel to use for the client to submit authentication credentials. SSH allows various methods for the client to authenticate to the SSH server. Each of these methods can be enabled or disabled as required on the server:
+
+Username/password—The client submits credentials that are verified by the SSH server either against a local user database or using a network authentication server.
+Public key authentication—Each remote user's public key is added to a list of keys authorized for each local account on the SSH server.
+Kerberos—The client submits the Kerberos credentials (a Ticket Granting Ticket) obtained when the user logged onto the workstation to the server using the Generic Security Services Application Program Interface (GSSAPI). The SSH server contacts the Ticket Granting Service (in a Windows environment, this will be a domain controller) to validate the credential.
+Managing valid client public keys is a critical security task. Many recent attacks on web servers have exploited poor key management. If a user's private key is compromised, delete the public key from the appliance, then regenerate the key pair on the user's (remediated) client device and copy the public key to the SSH server. Always delete public keys if the user's access permissions have been revoked.
+Secure Shell Commands
+SSH features a rich command set, fully documented at the OpenSSH website (openssh.com/manual.html). Some of the most important commands are the following:
+
+sshd—Start the SSH Daemon (server). Parameters such as the host's certificate file, port to listen on, and logging options can be set via switches or in a configuration file.
+ssh-keygen—Create a key pair to use to access servers. The private key must be stored securely on your local computer. The public key must be copied to the server. You can use the ssh-copy-id command to do this, or you can copy the file manually.
+ssh-agent—Configure a service to use to store the keys used to access multiple hosts. The agent stores the private key for each public key securely and reduces the number of times use of a private key has to be confirmed with a passphrase. This provides a single sign-on (SSO) mechanism for multiple SSH servers. The ssh-add command is used to add a key to the agent.
+ssh Host—Use the SSH client to connect to the server running at Host. Host can be an FQDN or IP address. You can also create a client configuration file.
+ssh Username@Host—Use the SSH client to connect to the server running at Host with a different Username.
+ssh Host "Command or Script"—Use the SSH client to execute a command or script on the remote server running at Host without starting a shell.
+scp Username@Host:RemoteFile /Local/Destination—A file transfer client with remote copy/rcp-like command interface.
+sftp—A file transfer client with FTP-like command interface.
+Resume Auto Scroll
+1.0×
